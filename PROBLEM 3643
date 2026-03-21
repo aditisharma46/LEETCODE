@@ -1,0 +1,16 @@
+class Solution:
+    def reverseSubmatrix(self, grid: List[List[int]], x: int, y: int, k: int) -> List[List[int]]:
+        
+        l = x
+        r = l + k - 1
+
+        while l <= r:
+            l_row = grid[l]
+            r_row = grid[r]
+
+            for idx in range(y, y + k):
+                l_row[idx], r_row[idx] = r_row[idx], l_row[idx]
+            
+            l += 1
+            r -= 1
+        return grid
